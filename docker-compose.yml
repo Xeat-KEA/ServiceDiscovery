@@ -9,6 +9,16 @@ services:
       - "19090:19090"
     environment:
       EUREKA_SERVER_URL: ${EUREKA_SERVER_URL}
+  gateway:
+    image: atom8426/ct-gateway:latest
+    container_name: ct-eureka-app
+    networks:
+      - spring-cloud-network
+    ports:
+      - "19091:19091"
+    environment:
+      EUREKA_SERVER_URL: ${EUREKA_SERVER_URL}
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY}
 
   userservice:
     image: atom8426/ct-userservice:latest
