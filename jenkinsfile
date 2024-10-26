@@ -52,7 +52,7 @@ pipeline {
                         docker stop ${APP_NAME} || true
                         docker rm ${APP_NAME} || true
                         docker run -d --restart always -p 19090:19090 --name ${APP_NAME} \
-                          --env EUREKA_DOMAIN=${EUREKA_DOMAIN} \
+                          --env EUREKA_SERVER_URL=${EUREKA_SERVER_URL} \
                           ${IMAGE_NAME}:latest
                     """
                 }
