@@ -11,15 +11,14 @@ services:
       EUREKA_SERVER_URL: ${EUREKA_SERVER_URL}
   gateway:
     image: atom8426/ct-gateway:latest
-    container_name: ct-eureka-app
+    container_name: ct-gateway-app
     networks:
       - spring-cloud-network
     ports:
       - "19091:19091"
     environment:
       EUREKA_SERVER_URL: ${EUREKA_SERVER_URL}
-      JWT_SECRET_KEY: ${JWT_SECRET_KEY}
-
+      JWT_SECRET: ${JWT_SECRET}
   userservice:
     image: atom8426/ct-userservice:latest
     container_name: ct-userservice-app
@@ -29,6 +28,9 @@ services:
       - "8081:8081"
     environment:
       SPRING_PROFILE: dev
+      CT_DB_USER: ${CT_DB_USER}
+      CT_DB_PASSWORD: ${CT_DB_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
       NAVER_ID: ${NAVER_ID}
       NAVER_SECRET: ${NAVER_SECRET}
       GOOGLE_ID: ${GOOGLE_ID}
