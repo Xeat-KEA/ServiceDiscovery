@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'develop', credentialsId: 'github_access_token', url: 'https://github.com/Xeat-KEA/ServiceDiscovery.git'
+                git branch: 'main', credentialsId: 'github_access_token', url: 'https://github.com/Xeat-KEA/ServiceDiscovery.git'
             }
         }
 
