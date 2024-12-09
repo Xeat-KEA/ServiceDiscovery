@@ -16,7 +16,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', credentialsId: 'github_access_token', url: 'https://github.com/Xeat-KEA/eureka.git'
+                git branch: 'main', credentialsId: 'github_access_token', url: 'https://github.com/Xeat-KEA/eureka-server.git'
             }
         }
 
